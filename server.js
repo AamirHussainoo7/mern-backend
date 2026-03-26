@@ -18,17 +18,18 @@ const dbpass = encodeURIComponent(process.env.DBPASS);
 //   });
 // });
 
-mongoose
+mmongoose
   .connect(
-    `mongodb+srv://aamirhussain10th:${dbpass}@ecommerce.24ithtm.mongodb.net/?appName=ECommerce`
+    `mongodb://${dbuser}:${dbpass}@ac-tcoixib-shard-00-00.24ithtm.mongodb.net:27017,ac-tcoixib-shard-00-01.24ithtm.mongodb.net:27017,ac-tcoixib-shard-00-02.24ithtm.mongodb.net:27017/ecommerce?ssl=true&replicaSet=atlas-bnwfws-shard-0&authSource=admin&retryWrites=true&w=majority`
   )
   .then(() => {
+    console.log("MongoDB Connected ✅");
     app.listen(8080, () => {
-      console.log("Server started");
+      console.log("Server started on port 8080 🚀");
     });
   })
   .catch((err) => {
-    console.log(err);
+    console.error("DB Connection Error ❌:", err);
   });
 
 app.use("/api/users", userRouter);
