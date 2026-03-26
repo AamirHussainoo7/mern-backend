@@ -20,7 +20,7 @@ const dbpass = encodeURIComponent(process.env.DBPASS);
 
 mongoose
   .connect(
-    `mongodb+srv://${dbuser}:${dbpass}@cluster0.abcd123.mongodb.net/ecommerce?retryWrites=true&w=majority`
+     `mongodb://${dbuser}:${dbpass}@ac-tcoixib-shard-00-00.24ithtm.mongodb.net:27017,ac-tcoixib-shard-00-01.24ithtm.mongodb.net:27017,ac-tcoixib-shard-00-02.24ithtm.mongodb.net:27017/ecommerce?ssl=true&replicaSet=atlas-bnwfws-shard-0&authSource=admin&retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(8080, () => {
