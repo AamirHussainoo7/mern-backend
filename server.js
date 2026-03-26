@@ -20,16 +20,19 @@ const dbpass = encodeURIComponent(process.env.DBPASS);
 
 mongoose
   .connect(
-    `mongodb+srv://${dbuser}:${dbpass}
-@ecommerce.24ithtm.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=ECommerce`
+    `mongodb+srv://${dbuser}:${dbpass}@cluster0.abcd123.mongodb.net/ecommerce?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(8080, () => {
       console.log("Server started");
     });
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/orders", orderRouter);
 //hello World
+

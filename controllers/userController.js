@@ -1,6 +1,6 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcrypt";
-import {ObjectId} from "mongoose"
+import {ObjectId} from "mongoose";
 import jwt from "jsonwebtoken";
 const SECRET = "something";
 const profile = async (req, res) => {
